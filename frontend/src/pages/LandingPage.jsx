@@ -1,6 +1,6 @@
 // import { useNavigate } from "react-router-dom";
 import HERO_IMG from "../assets/hero-img.png";
-// import { APP_FEATURES } from "../utils/data";
+import { APP_FEATURES } from "../utils/data";
 import {LuSparkles} from 'react-icons/lu'
 
 function LandingPage() {
@@ -76,10 +76,56 @@ function LandingPage() {
             />
           </section>
         </div>
-      </div>
-
       
 
+      <div className="">
+        <div className="">
+          <section className="">
+            <h2 className="">
+              Features That Make you Shine
+            </h2>
+
+            <div className="">
+              {/* First 3 cards */}
+              <div className="">
+                {APP_FEATURES.slice(0,3).map((feature)=>(
+                  <div 
+                     key = {feature.id}
+                     className=""
+                  >
+                    <h3 className="">
+                      {feature.title}
+                    </h3>
+
+                    <p className="">{feature.descritpion}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Remaining 2 cards */}
+              <div className="">
+                {APP_FEATURES.slice(3).map((feature) => (
+                  <div 
+                     key = {feature.id}
+                     className=""
+                  >
+                    <h3 className="">
+                      {feature.title}
+                    </h3>
+
+                    <p className="">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div className="">
+        Made by 😎... Yashas Coding
+      </div>
+    </div>
     </>
   );
 }
