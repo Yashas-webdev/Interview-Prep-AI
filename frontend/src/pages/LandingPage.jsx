@@ -1,7 +1,7 @@
 // import { useNavigate } from "react-router-dom";
-// import HERO_IMG from "../assets/hero-img.png";
+import HERO_IMG from "../assets/hero-img.png";
 // import { APP_FEATURES } from "../utils/data";
-import {LuSpakles} from 'react-icons/lu'
+import {LuSparkles} from 'react-icons/lu'
 
 function LandingPage() {
 //   const navigate = useNavigate();
@@ -35,7 +35,7 @@ function LandingPage() {
             <div className="w-full md:w-1/2 pr-4 mb-8 md:mb-0">
               <div className="flex items-center justify-left mb-2">
                 <div className="flex items-center gap-2 text-[13px] text-amber-600 font-semibold bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
-                  <LuSpakles/> AI Powered
+                  <LuSparkles/> AI Powered
                 </div>
               </div>
 
@@ -65,6 +65,21 @@ function LandingPage() {
           </div>
         </div>
       </div>
+
+      <div className='w-full min-h-full relative z-10 mb-56'>
+        <div>
+          <section className='flex items-center justify-center -mt-36'>
+            <img 
+               src={HERO_IMG}
+               alt='Hero Image'
+               className='w-[80vw] rounded-lg'
+            />
+          </section>
+        </div>
+      </div>
+
+      
+
     </>
   );
 }
