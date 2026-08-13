@@ -1,12 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import HERO_IMG from "../assets/hero-img.png";
-import { APP_FEATURES } from "../utils/data";
+// import { useNavigate } from "react-router-dom";
+// import HERO_IMG from "../assets/hero-img.png";
+// import { APP_FEATURES } from "../utils/data";
+import {LuSpakles} from 'react-icons/lu'
 
 function LandingPage() {
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
-  const [openAuthModal, setOpenAuthModal] = useState(false);
-  const [currentPage, setCurrentPage] = useState("login");
+//   const [openAuthModal, setOpenAuthModal] = useState(false);
+//   const [currentPage, setCurrentPage] = useState("login");
 
   const handleCTA = () => {};
 
@@ -23,7 +24,7 @@ function LandingPage() {
             </div>
             <button
               className="bg-linear-to-r from-[#FF9324] to-[#e99a4b] text-sm font-semibold text-white px-7 py-2.5 rounded-full hover:bg-black hover:text-white border border-white transition-colors cursor-pointer"
-              onClick={() => setOpenAuthModal(true)}
+            //   onClick={() => setOpenAuthModal(true)}
             >
               Login / Sign Up
             </button>
@@ -34,7 +35,7 @@ function LandingPage() {
             <div className="w-full md:w-1/2 pr-4 mb-8 md:mb-0">
               <div className="flex items-center justify-left mb-2">
                 <div className="flex items-center gap-2 text-[13px] text-amber-600 font-semibold bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
-                  AI Powered
+                  <LuSpakles/> AI Powered
                 </div>
               </div>
 
