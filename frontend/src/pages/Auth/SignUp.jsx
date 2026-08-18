@@ -1,7 +1,8 @@
 // import React from 'react'
 import { useState } from "react";
-import {useNavigate} from 'react-router-dom';
-import Input from '../../components/Inputs';
+// import {useNavigate} from 'react-router-dom';
+import Input from "../../components/Inputs/Input.jsx";
+import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector.jsx";
 
 const SignUp = ({setCurrentPage}) => {
 
@@ -10,9 +11,9 @@ const SignUp = ({setCurrentPage}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [error, setError] = useState(null);
+  const [error, ] = useState(null);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();

@@ -1,20 +1,40 @@
 // import React from 'react'
 
 import { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+// import {useNavigate} from 'react-router-dom'
+import Input from '../../components/Inputs/Input.jsx'
 
 
-const Login = ({setCurrentpage}) => {
+const Login = ({setCurrentPage}) => {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("")
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
+  const ValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
   //Handle Login Form Submit 
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    if(!ValidEmail(email)){
+      setError("Please enter a valid email address");
+      return;
+    }
+
+    if(!password){
+      setError("Please enter the password");
+      return;
+    }
+
+    setError("");
+
+    ///Login API call
+   
   };
 
   return (
@@ -43,16 +63,17 @@ const Login = ({setCurrentpage}) => {
         
         {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
-        <button type="sbmit" className="btn-primary">
+        <button type="submit" className="btn-primary">
           LOGIN
         </button>
 
         <p className="text-[13px] text-slate-800 mt-3">
           Don't have an account?{" "}
           <button 
+            type="button"
             className="font-medium text-primary underline cursor-pointer"
             onClick={()=>{
-              setCurrentpage("signup")
+              setCurrentPage("signup")
             }}
           >
             SignUp
