@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 // import {useNavigate} from 'react-router-dom'
+import { validEmail } from "../../utils/helper.js";
 import Input from '../../components/Inputs/Input.jsx'
 
 
@@ -12,16 +13,14 @@ const Login = ({setCurrentPage}) => {
 
   // const navigate = useNavigate();
 
-  const ValidEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  
 
   //Handle Login Form Submit 
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if(!ValidEmail(email)){
+    if(!validEmail(email)){
       setError("Please enter a valid email address");
       return;
     }
@@ -35,6 +34,7 @@ const Login = ({setCurrentPage}) => {
 
     ///Login API call
     try{
+      //code will be written
     }catch(error){
       if(error.respones && error.response.data.message){
         setError(error.respones.data.message)

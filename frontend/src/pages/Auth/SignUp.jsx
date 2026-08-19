@@ -3,6 +3,7 @@ import { useState } from "react";
 // import {useNavigate} from 'react-router-dom';
 import Input from "../../components/Inputs/Input.jsx";
 import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector.jsx";
+import { validEmail } from "../../utils/helper.js";
 
 const SignUp = ({setCurrentPage}) => {
 
@@ -11,12 +12,41 @@ const SignUp = ({setCurrentPage}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [error, ] = useState(null);
+  const [error, setError] = useState(null);
 
   // const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+
+    // let profileImageUrl = '';
+
+    if(!fullName){
+      setError("Pleaes enter full name.");
+      return;
+    }
+
+    if(!validEmail(email)){
+      setError("Please enter a validate email address.")
+      return
+    }
+
+    if(!password){
+      setError("Please enter the password")
+    }
+
+    setError("");
+
+    ///Login API call
+    try{
+      //code will be written
+    }catch(error){
+      if(error.respones && error.response.data.message){
+        setError(error.respones.data.message)
+      }else{
+        setError("Something went wrong. Please try again")
+      }
+    }
   };
   
   return (
@@ -40,7 +70,7 @@ const SignUp = ({setCurrentPage}) => {
 
           <Input 
               value = {email}
-              onChange = {({target})=>setEmail(target)}
+              onChange = {({target})=>setEmail(target.value)}
               label = 'Email Adress'
               placeholder = 'john@example.com'
               type = 'text'
@@ -48,7 +78,7 @@ const SignUp = ({setCurrentPage}) => {
 
           <Input
               value = {password}
-              onChange = {({target}) => setPassword(target)}
+              onChange = {({target}) => setPassword(target.value)}
               label = 'Password'
               placeholder = 'Min 8 Characters'
               type = 'password'
