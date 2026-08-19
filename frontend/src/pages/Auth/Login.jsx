@@ -34,6 +34,14 @@ const Login = ({setCurrentPage}) => {
     setError("");
 
     ///Login API call
+    try{
+    }catch(error){
+      if(error.respones && error.response.data.message){
+        setError(error.respones.data.message)
+      }else{
+        setError("Something went wrong. Please try again")
+      }
+    }
    
   };
 
