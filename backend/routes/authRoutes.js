@@ -1,6 +1,7 @@
 const express = require('express');
 const {registerUser, loginUser, getUserProfile} = require('../controllers/authController.js')
-const {protect} = require('../middlewares/authMiddleware.js')
+const {protect} = require('../middlewares/authMiddleware.js')  //I used this { } becuase in the export I used this brackect so.
+const upload = require('../middlewares/uploadMiddleware.js')
 
 const router = express.Router();
 
