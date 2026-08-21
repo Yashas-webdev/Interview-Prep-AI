@@ -25,10 +25,10 @@ const sessionSchema = new mongoose.Schema({
 
     questions:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref: "Questions",
+        ref: "Question",
     }]
 },
 {timestamps:true}
 )
 
-module.exports = monogoose.model("Session",sessionSchema);
+module.exports = mongoose.model("Session",sessionSchema);
