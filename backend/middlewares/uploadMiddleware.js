@@ -12,9 +12,9 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-    console.log("Field name:", file.fieldname);
-    console.log("Original name:", file.originalname);
-    console.log("MIME type:", file.mimetype);
+    // console.log("Field name:", file.fieldname);
+    // console.log("Original name:", file.originalname);
+    // console.log("MIME type:", file.mimetype);
 
     const allowedExtensions = [".jpg", ".jpeg", ".png"];
 

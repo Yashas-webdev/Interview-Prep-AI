@@ -6,6 +6,7 @@ const path = require("path");
 
 const connectDB = require("./config/db.js");
 const authRoutes = require("./routes/authRoutes.js");
+const sessionRoutes = require("./routes/sessionRoutes.js")
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use(
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/sessions",sessionRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
