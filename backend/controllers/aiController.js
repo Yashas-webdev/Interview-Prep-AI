@@ -46,7 +46,36 @@ const generateInterviewQuestions = async (req,res) => {
 //@route    POST /api/ai/generate-explanation
 //@access   Private
 const generateConceptExplanation = async (req,res) => {
+    try{
+        const {question} = req.body;
 
+        if(!question) { return res.status(404).json({message: "Missing required fields"});
+        }
+
+        const prompt = conceptExplainPrompt(question);
+
+       const response = await ai.models.generateContent({
+        model: "gemini-3.5-flash-lite",
+        contents: prompt,
+      });
+
+      let rawText = response.text;
+
+      //Clean it: Remove ```json and``` from beginning and end 
+
+      const cleanedText = rawText
+         .replace(/^```json\s*/,"")//remove starting ```json
+         .replace(/```$/,"")// remove ending ```
+         .trim(); //remove extra spaces
+
+        //now safe to parse
+        const data = JSON.parse(cleanedText);
+
+        res.status(200).json(data);
+        
+    }catch(error){
+
+    }
 }
 
 module.exports = { generateInterviewQuestions, generateConceptExplanation}
