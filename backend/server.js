@@ -9,6 +9,7 @@ const authRoutes = require("./routes/authRoutes.js");
 const sessionRoutes = require("./routes/sessionRoutes.js")
 const questionRoutes = require('./routes/questionRoutes.js')
 const { generateInterviewQuestions, generateConceptExplanation} = require("./controllers/aiController.js")
+const {protect} = require("../backend/middlewares/authMiddleware.js")
 
 const app = express();
 
@@ -38,7 +39,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/sessions",sessionRoutes);
 app.use("/api/questions", questionRoutes)
 
-app.use('/api/ai/generate-questions',protect, generateInterviewQuestions);
+app.use("/api/ai/generate-questions",protect, generateInterviewQuestions);
 app.use("/api/ai/generate-explanation",protect, generateConceptExplanation);
 
 // Start server
