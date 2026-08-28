@@ -1,9 +1,12 @@
 // import React from 'react'
 
 import { useState } from "react";
-// import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import { validEmail } from "../../utils/helper.js";
 import Input from '../../components/Inputs/Input.jsx'
+// import axios from "axios";
+import axiosInstance from "../../utils/axiosInstance.js";
+import { API_PATHS } from "../../utils/apiPaths.js";
 
 
 const Login = ({setCurrentPage}) => {
@@ -11,7 +14,7 @@ const Login = ({setCurrentPage}) => {
   const [password,setPassword] = useState("")
   const [error, setError] = useState(null);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   
 
@@ -34,7 +37,17 @@ const Login = ({setCurrentPage}) => {
 
     ///Login API call
     try{
-      //code will be written
+      const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
+        email,
+        password
+      });
+
+      const {token} = response.data;
+
+      if(token){
+        localStorage.setItem("token",token);
+        navigate("/dashboard")
+      }
     }catch(error){
       if(error.respones && error.response.data.message){
         setError(error.respones.data.message)
