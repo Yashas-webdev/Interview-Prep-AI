@@ -49,8 +49,8 @@ const Login = ({setCurrentPage}) => {
         navigate("/dashboard")
       }
     }catch(error){
-      if(error.respones && error.response.data.message){
-        setError(error.respones.data.message)
+      if(error.response && error.response.data.message){
+        setError(error.response.data.message)
       }else{
         setError("Something went wrong. Please try again")
       }
