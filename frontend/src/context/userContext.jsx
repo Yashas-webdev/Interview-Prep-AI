@@ -1,13 +1,18 @@
-import  {createContext, useState, useEffect, Children} from "react";
+import  {createContext, useState, useEffect, } from "react";
 import axiosInstance from "../utils/axiosInstance.js"
 import { API_PATHS } from "../utils/apiPaths.js";
 
 export const UserContext = createContext();
 
-const UserProvider = ({Children}) => {
+const UserProvider = ({children}) => {
 
 const [user, setUser] = useState(null);
 const [loading, setLoading] = useState(true); // New state to track loading
+
+const clearUser = () => {
+        setUser(null);
+        localStorage.removeItem("token");
+    };  // the clearuser should be after the Update user, but here it is used  before the useEffect becuase the clearUser is used inside the useEffect it throw as an error the vairable is used before declaring it,"temporal dead zone"
 
 useEffect( () => {
     if (user) return;
@@ -36,18 +41,13 @@ useEffect( () => {
 
     const updateUser = (userData) => {
         setUser(userData);
-        localStorage.setItem("token",userData.toekn);//Save tken
+        localStorage.setItem("token",userData.token);//Save tken
     }
-
-    const clearUser = () => {
-        setUser(null);
-        localStorage.removeItem("token");
-    };
 
 
     return (
         <UserContext.Provider value={{user, loading, updateUser, clearUser}}>
-            {Children}
+            {children}
         </UserContext.Provider>
     );
 };
