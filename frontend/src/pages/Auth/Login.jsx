@@ -1,12 +1,13 @@
 // import React from 'react'
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { validEmail } from "../../utils/helper.js";
 import Input from '../../components/Inputs/Input.jsx'
 // import axios from "axios";
 import axiosInstance from "../../utils/axiosInstance.js";
 import { API_PATHS } from "../../utils/apiPaths.js";
+import { UserContext } from "../../context/userContext.jsx";
 
 
 const Login = ({setCurrentPage}) => {
@@ -14,6 +15,7 @@ const Login = ({setCurrentPage}) => {
   const [password,setPassword] = useState("")
   const [error, setError] = useState(null);
 
+  const {updateUser} = useContext(UserContext);
   const navigate = useNavigate();
 
   
@@ -46,6 +48,7 @@ const Login = ({setCurrentPage}) => {
 
       if(token){
         localStorage.setItem("token",token);
+        updateUser(response.data) 
         navigate("/dashboard")
       }
     }catch(error){
