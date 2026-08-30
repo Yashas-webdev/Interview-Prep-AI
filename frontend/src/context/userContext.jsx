@@ -39,6 +39,11 @@ useEffect( () => {
         localStorage.setItem("token",userData.toekn);//Save tken
     }
 
+    const clearUser = () => {
+        setUser(null);
+        localStorage.removeItem("token");
+    };
+
 
     return (
         <UserContext.Provider value={{user, loading, updateUser, clearUser}}>
