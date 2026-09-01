@@ -26,7 +26,9 @@ useEffect( () => {
     const fetchUser = async () => {
         try {
             const response = await axiosInstance.get(API_PATHS.AUTH.GET_PROFILE);
-            setUser (response.data);
+              console.log("Profile response:", response.data);
+
+            setUser (response.data.user);
         } catch (error) {
             console.error("User not authenticated",error);
             clearUser();

@@ -13,6 +13,8 @@ const navigate = useNavigate();
         clearUser();
         navigate('/');
     };
+
+    console.log("Current user:", user);
   return (
     <div className="flex items-center">
         <img 
