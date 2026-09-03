@@ -7,6 +7,8 @@ import { validEmail } from "../../utils/helper.js";
 import { UserContext } from "../../context/userContext.jsx";
 import axiosInstance from "../../utils/axiosInstance.js";
 import { API_PATHS } from "../../utils/apiPaths.js";
+import uploadImage from "../../utils/uploadImage.js"
+
 
 const SignUp = ({setCurrentPage}) => {
 
