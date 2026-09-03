@@ -1,9 +1,12 @@
 // import React from 'react'
-import { useState } from "react";
-// import {useNavigate} from 'react-router-dom';
+import { useContext, useState } from "react";
+import {useNavigate} from 'react-router-dom';
 import Input from "../../components/Inputs/Input.jsx";
 import ProfilePhotoSelector from "../../components/Inputs/ProfilePhotoSelector.jsx";
 import { validEmail } from "../../utils/helper.js";
+import { UserContext } from "../../context/userContext.jsx";
+import axiosInstance from "../../utils/axiosInstance.js";
+import { API_PATHS } from "../../utils/apiPaths.js";
 
 const SignUp = ({setCurrentPage}) => {
 
@@ -14,12 +17,13 @@ const SignUp = ({setCurrentPage}) => {
 
   const [error, setError] = useState(null);
 
-  // const navigate = useNavigate();
+  const {updateUser} = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    // let profileImageUrl = '';
+    let profileImageUrl = '';
 
     if(!fullName){
       setError("Pleaes enter full name.");
@@ -39,7 +43,26 @@ const SignUp = ({setCurrentPage}) => {
 
     ///Login API call
     try{
-      //code will be written
+      //upload image if present
+      if(profilePic){
+        const imageUploadRes = await uploadImage(profilePic);
+        profileImageUrl = imageUploadRes.imageUrl || '';
+      }
+
+      const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER,{
+        name: fullName,
+        email,
+        password,
+        profileImageUrl,
+      });
+
+      const {token} = response.data;
+
+      if(token){
+        localStorage.setItem("token",token);
+        updateUser(response.data);
+        navigate("/Login")
+      }
     }catch(error){
       if(error.respones && error.response.data.message){
         setError(error.respones.data.message)
