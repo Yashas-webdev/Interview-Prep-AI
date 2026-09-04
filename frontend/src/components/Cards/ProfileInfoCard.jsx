@@ -16,6 +16,7 @@ const navigate = useNavigate();
 
     console.log("Current user:", user);
   return (
+    user && (
     <div className="flex items-center">
         <img 
            src={user.profileImageUrl}
@@ -35,6 +36,8 @@ const navigate = useNavigate();
         </div>
     </div>
   )
+
+)
 }
 
 export default ProfileInfoCard

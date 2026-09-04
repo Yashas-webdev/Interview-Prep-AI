@@ -2,7 +2,7 @@ import {API_PATHS} from './apiPaths.js'
 import axiosInstance from './axiosInstance.js'
 
 const uploadImage = async (imageFile) => {
-    const formData = new FormData();
+    const formData = new FormData(); // It is the built in browswer api way to oackage files(and other fields) for upload, mimicking a real HTML form submission,
     //Append image file to formData
     formData.append('image',imageFile);
 

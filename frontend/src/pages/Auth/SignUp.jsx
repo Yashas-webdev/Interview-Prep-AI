@@ -39,9 +39,10 @@ const SignUp = ({setCurrentPage}) => {
 
     if(!password){
       setError("Please enter the password")
+      return
     }
 
-    setError("");
+    setError('');
 
     ///Login API call
     try{
@@ -63,11 +64,11 @@ const SignUp = ({setCurrentPage}) => {
       if(token){
         localStorage.setItem("token",token);
         updateUser(response.data);
-        navigate("/Login")
+        navigate("/dashboard")
       }
     }catch(error){
-      if(error.respones && error.response.data.message){
-        setError(error.respones.data.message)
+      if(error.response && error.response.data.message){
+        setError(error.response.data.message)
       }else{
         setError("Something went wrong. Please try again")
       }
