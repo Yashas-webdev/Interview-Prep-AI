@@ -2,11 +2,12 @@
 import { LuPlus } from "react-icons/lu";
 import { CARD_BG } from "../../utils/data.js"
 import toast from 'react-hot-toast';
+import DashboardLayout from "../../components/layouts/DashboardLayout.jsx";
 function Dashboard() {
   return (
-    <DashobardLayout>
+    <DashboardLayout>
       Dashboard
-    </DashobardLayout>
+    </DashboardLayout>
   )
 }
 
