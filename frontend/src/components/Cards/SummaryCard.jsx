@@ -53,23 +53,23 @@ const SummaryCard = ({
             </button>
         </div>
 
-        <div className="">
-            <div className="">
-                <div className="">
+        <div className="px-3 pb-3">
+            <div className="flex items-center gap-3 mt-4">
+                <div className="text-[10px] font-medium text-black px-3 py-1 border-[0.5px] border-gray-900 rounded-full">
                    Experience: {experience} {experience == 1 ? "Year" : "Years"} 
                 </div>
 
-                <div className ="">
+                <div className ="text-[10px] font-medium text-black px-3 py-1 border-[0.5px] border-gray-900 rounded-full">
                     {questions} Q&A
                 </div>
 
-                <div className="">
+                <div className="text-[10px] fonte-medium text-black px-3 py-1 border-[0.5px] border-gray-900 rounded-full">
                     Last Updated: {lastUpdated}
                 </div>
             </div>
 
             {/* Description */}
-            <p className="">
+            <p className="text-[12px] text-gray-500 font-medium line-clamp-2 mt-3">
                 {description}
             </p>
         </div>
