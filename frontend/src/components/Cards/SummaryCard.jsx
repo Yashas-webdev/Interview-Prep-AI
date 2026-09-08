@@ -1,4 +1,5 @@
 // import React from 'react'
+import {LuTrash2} from 'react-icons/lu'
 
 const SummaryCard = ({
     colors,
@@ -49,7 +50,7 @@ const SummaryCard = ({
                  onDelete();
                }}
             >
-                delete
+                <LuTrash2 />
             </button>
         </div>
 
