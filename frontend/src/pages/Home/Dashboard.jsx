@@ -7,14 +7,15 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../utils/axiosInstance.js";
 import { API_PATHS } from "../../utils/apiPaths.js";
+import SummaryCard from "../../components/Cards/SummaryCard.jsx";
 import moment from 'moment';
 
 const Dashboard = () => {
 
   const navigate = useNavigate();
 
-  const [openCreateModal, setOpenCreateModal] = useState(fasle);
-  const [session, setSession] = useState([]);
+  const [openCreateModal, setOpenCreateModal] = useState(false);
+  const [sessions, setSessions] = useState([]);
 
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
     open: false,
@@ -23,7 +24,8 @@ const Dashboard = () => {
 
   const fetchAllSessions = async () => {
     try{
-      const response = await axiosInstance.get(API_PATHS.SESSION.GET_ALL)
+      const response = await axiosInstance.get(API_PATHS.SESSION.GET_ALL);
+      setSessions(response.data);
     } catch (error){
       console.log("Error fetching session data:",error);
     }
