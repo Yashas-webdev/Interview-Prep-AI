@@ -9,6 +9,8 @@ import axiosInstance from "../../utils/axiosInstance.js";
 import { API_PATHS } from "../../utils/apiPaths.js";
 import SummaryCard from "../../components/Cards/SummaryCard.jsx";
 import moment from 'moment';
+import CreateSeessionForm from "./CreateSeessionForm.jsx";
+import Modal from '../components/Modal.jsx'
 
 const Dashboard = () => {
 
@@ -56,7 +58,7 @@ const Dashboard = () => {
                 : ''
                }
                onSelect={() => navigate(`/interview-prep/${data?._id}`)}
-               onSelect={() => setOpenCreateModal({ open: true, data})}
+               onDelete={() => setOpenCreateModal({ open: true, data})}
             />
               ))}
         </div>
@@ -69,6 +71,18 @@ const Dashboard = () => {
           Add new
         </button>
       </div>
+
+      <Modal 
+         isOpen = {openCreateModal}
+         onClose={() => {
+          setOpenCreateModal(false);
+         }}
+         hideHeader
+      >
+        <div>
+          <CreateSeessionForm />
+        </div>
+      </Modal>
     </DashboardLayout>
   )
 }
