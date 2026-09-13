@@ -37,16 +37,16 @@ const CreateSeessionForm = () => {
         setError("");
     };
   return<>
-   <div className="">
-    <h3 className="">
+   <div className="w-[90w] md:w-[35vw] p-7 flex flex-col justify-center ">
+    <h3 className="text-lg font-semibold text-black ">
         Start a New Interview Journey
     </h3>
-    <p className="">
+    <p className="text-xs text-slate-700 mt-[5px] mb-3">
         Fill out a few quick details and unlock your personalized set of
         interview questions!
     </p>
 
-    <form onSubmit={handleCreateSession} className="">
+    <form onSubmit={handleCreateSession} className="flex flex-col gap-3">
         <Input 
           value={formData.role}
           onChange={({target}) => handleChange("role", target.value)}
