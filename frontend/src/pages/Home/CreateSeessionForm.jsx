@@ -79,11 +79,11 @@ const CreateSeessionForm = () => {
           type="text"
         />
 
-        {error && <p className="">{error}</p>}
+        {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
         <button 
            type="submit"
-           className=""
+           className="btn-primary w-full mt-2"
            disabled={isLoading}
         >
             Create Session
