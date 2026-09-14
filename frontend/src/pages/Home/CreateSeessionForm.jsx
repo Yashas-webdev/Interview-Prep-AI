@@ -1,8 +1,9 @@
 // import React from 'react'
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Input from "../../components/Inputs/Input";
+import SpinnerLoader from "../../components/Loader/SpinnerLoader";
 
 const CreateSeessionForm = () => {
     const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const CreateSeessionForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const handleChange = (key, value) => {
         setFormData((prevData) => ({
@@ -27,15 +28,17 @@ const CreateSeessionForm = () => {
     const handleCreateSession = async (e) => {
         e.preventDefault();
 
-        const { role, experience, topicsToFocus} = formData;
+        const { role, experience, topicsToFocus, description} = formData;
 
-        if(!role || !experience || !topicsToFocus) {
+        if(!role || !experience || !topicsToFocus || !description ) {
             setError("Please fill all the require fields.");
             return;
         }
 
         setError("");
     };
+
+
   return<>
    <div className="w-[90w] md:w-[35vw] p-7 flex flex-col justify-center ">
     <h3 className="text-lg font-semibold text-black ">
@@ -66,7 +69,7 @@ const CreateSeessionForm = () => {
         <Input
           value={formData.topicsToFocus}
           onChange={({target}) => handleChange("topicsToFocus", target.value)}
-          lablel="Topics to Focus On"
+          label="Topics to Focus On"
           placeholder="(Comma-seprated, e.g., React, Node.js, MongoDB)"
           type="text"
         />
@@ -86,7 +89,7 @@ const CreateSeessionForm = () => {
            className="btn-primary w-full mt-2"
            disabled={isLoading}
         >
-            Create Session
+        {isLoading && <SpinnerLoader />}    Create Session
         </button>
     </form>
    </div>
