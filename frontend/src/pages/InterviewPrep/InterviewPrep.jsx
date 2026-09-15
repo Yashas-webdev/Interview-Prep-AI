@@ -8,6 +8,7 @@ import SpinnerLoader from "../../components/Loader/SpinnerLoader";
 import {toast} from 'react-hot-toast'
 import { useState } from "react";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
+import RoleInfoHeader from "./components/RoleInfoHeader";
 
 const InterviewPrep = () => {
 
