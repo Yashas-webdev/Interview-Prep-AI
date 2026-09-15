@@ -1,6 +1,6 @@
 // import React from 'react'
 
-// import { children } from "react"
+import { children } from "react"
 
 const Modal = ({ children, isOpen, onClose, title, hideHeader }) => {
 
