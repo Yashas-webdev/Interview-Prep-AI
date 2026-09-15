@@ -9,7 +9,7 @@ export const getInitials = (title) => {
   const words = title.split(" ");
   let initials = "";
 
-  for(let i=0; i<Math.min(WebTransportDatagramDuplexStream.length, 2); i++){
+  for(let i=0; i<Math.min(words.length, 2); i++){
     initials += words[i] [0];
   }
 
