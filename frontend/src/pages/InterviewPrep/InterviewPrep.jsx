@@ -41,7 +41,9 @@ const InterviewPrep = () => {
   };
 
   //Generate Concept Explanation
-  const generateConceptExplanation = async (question) => {};
+  const generateConceptExplanation = async (question) => {
+
+  };
 
   //Pin Question
   const toggleQuestionPinExplanation = async (questionId) => {};
@@ -70,6 +72,51 @@ const InterviewPrep = () => {
              : ""
         }
       />
+
+      <div className="">
+        <h2 className="">Interview Q & A</h2>
+
+        <div className="">
+          <div
+            className={`col-span-12 ${
+              openLeanMoreDrawer ? "md:col-span-7" : "md:col-span-8"}`}
+          >
+            <AnimatePresence>
+              {sessionData?.questions?.map((data,index) => {
+                return (
+                  <motion.div  
+                    key = {data._id || index}
+                    initial = {{opacity: 0, y: -20}}
+                    animate={{opacity: 1, y:0}}
+                    exit={{opacity: 0, scale: 0.95}}
+                    transition={{
+                      duration: 0.4,
+                      type: "spring",
+                      stiffness: 100,
+                      delay: index * 0.1,
+                      damping: 15,
+                    }}
+                    layout //this is the key prop that animates position changes
+                    layoutId={`question-${data._id || index}`} //helps framer track specific items
+                  >
+                    <>
+                    <QuestionCard 
+                      question={data?.question}
+                      answer={data?.answer}
+                      onLearnMore={()=> 
+                         generateConceptExplanation(data.question)
+                      }
+                      isPinned={data?.isPinned}
+                      onTogglePin = {() => toggleQuestionPinStatus(data._id)}
+                    />
+                    </>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </DashboardLayout>
   )
 }
