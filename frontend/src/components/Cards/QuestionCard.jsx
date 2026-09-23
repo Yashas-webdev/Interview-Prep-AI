@@ -60,19 +60,19 @@ const QuestionCard = ({
                     </button>
 
                     <button 
-                      className=""
+                      className="flex items-center gap-2 text-xs text-cyan-800 font-medium bg-cyan-50 px-3 py-1 mr-2 rounded text-nowrap border-cyan-50 hover:border-cyan-200 cursor-pointer"
                       onClick={() => {
                         setIsExpanded(true);
                         onLearnMore();
                       }}
                     >
                         <LuSparkles/>
-                        <span className="">Learn More</span>
+                        <span className="hidden md:block">Learn More</span>
                     </button>
                 </div>
 
                 <button 
-                  className=""
+                  className="text-gray-400 hover:text-gray-100 cursor-pointer"
                   onClick={toggleExpand}
                 >
                     <LuChevronDown
@@ -85,12 +85,12 @@ const QuestionCard = ({
         </div>
 
         <div 
-         className=""
+         className="overflow-hidden transition-all duration-300 ease-in-out"
          style={{maxHeight: `${height}px`}}
         >
             <div 
               ref={contentRef}
-              className=""
+              className="mt-4 text-gray-700 bg-gray-50 px-5 py-3 rounded-lg"
             >
 
             </div>
