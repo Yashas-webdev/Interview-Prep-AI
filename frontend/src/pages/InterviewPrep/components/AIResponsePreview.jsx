@@ -8,13 +8,13 @@ import {oneLight} from 'react-syntax-highlighter/dist/esm/styles/prism';
 const AIResponsePreview = ({content}) => {
     if(!content) return null;
   return (
-    <div className="">
-        <div className="">
+    <div className="max-w-4xl mx-auto">
+        <div className="text-[14px] prose-slate dark:prose-invert max-w-none">
             <ReactMarkdown 
                remarkPlugins={[remarkGfm]}
                components={{
                 p({children}){
-                    return <p className="">{children}</p>
+                    return <p className="mb-4 leading-5">{children}</p>
                 },
                 strong({children}){
                     return <strong>{children}</strong>
@@ -23,61 +23,61 @@ const AIResponsePreview = ({content}) => {
                     return <em>{children}</em>
                 },
                 ul({children}){
-                    return <ul className="">{children}</ul>
+                    return <ul className="list-disc pl-6 space-y-2 my-4">{children}</ul>
                 },
                 ol({children}){
-                    return <ol className="">{children}</ol>
+                    return <ol className="list-decimal pl-6 space-y-2 my-4">{children}</ol>
                 },
                 li({children}){
-                    return <li className="">{children}</li>
+                    return <li className="mb-1">{children}</li>
                 },
                 blockquote({children}){
-                    return <blockquote className="">{children}</blockquote>
+                    return <blockquote className="border-l-4 border-gray-200 pl-4 italic my-4">{children}</blockquote>
                 },
                 h1({children}){
-                    return <h1 className="">{children}</h1>
+                    return <h1 className="text-2xl font-bold mt-6 mb-4">{children}</h1>
                 },
                 h2({children}){
-                    return <h2 className="">{children}</h2>
+                    return <h2 className="text-xl font-bold mt-6 mb-3">{children}</h2>
                 },
                 h3({children}){
-                    return <h3 className="">{children}</h3>
+                    return <h3 className="text-lg font-bold mt-5 mb-2">{children}</h3>
                 },
                 h4({children}){
-                    return <h4 className="">{children}</h4>
+                    return <h4 className="text-base font-bold mt-4 mb-2">{children}</h4>
                 },
                 a({children}){
-                    return <a href={href} className="">{children}</a>
+                    return <a href={href} className="text-blue-600 hover:underline">{children}</a>
                 },
                 table({children}){
                     return (
-                        <div className="">
-                            <table className="">
+                        <div className="overflow-x-auto my-4">
+                            <table className="min-w-full divide-y divide-gray-30 border border-gray-200">
                                 {children}
                             </table>
                         </div>
                     );
                 },
                 thead({children}){
-                    return <thead className="">{children}</thead>
+                    return <thead className="bg-gray-50">{children}</thead>
                 },
                 tbody({children}){
-                    return <tbody className="">{children}</tbody>
+                    return <tbody className="divide-y divide-gray-200">{children}</tbody>
                 },
                 tr({children}){
                     return <tr>{children}</tr>
                 },
                 th({children}){
-                    return <th className="">{children}</th>
+                    return <th className="px3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{children}</th>
                 },
                 td({children}){
-                    return <td className="">{children}</td>
+                    return <td className="px-3 py-2 whitespace-nowrap text-sm">{children}</td>
                 },
                 hr() {
-                    return <hr className=""></hr>
+                    return <hr className="my-6 border-gray-200"></hr>
                 },
                 img({ src, alt }){
-                    return <img src={src} alt={alt} className="" />;
+                    return <img src={src} alt={alt} className="my-4 max-w-full rounded" />;
                 },
                }}
             >
