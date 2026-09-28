@@ -88,4 +88,16 @@ const AIResponsePreview = ({content}) => {
   )
 }
 
+function CodeBlock({code, language}){
+    const [copied, setCopied] = useState(false);
+
+    const copyCode = () => {
+        navigator.clipboard.writeText(code);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    return <></>
+}
+
 export default AIResponsePreview
