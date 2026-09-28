@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {Prism as SyntaxHightlighter} from 'react-syntax-highlighter';
 import {oneLight} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import language from "react-syntax-highlighter/dist/esm/languages/hljs/1c";
 
 const AIResponsePreview = ({content}) => {
     if(!content) return null;
@@ -13,6 +14,23 @@ const AIResponsePreview = ({content}) => {
             <ReactMarkdown 
                remarkPlugins={[remarkGfm]}
                components={{
+                code({node, className, children, ...props}){
+                    const match = /language-(/w+)/.exec(className || '');
+                    const language = match ? match[1] : '';
+
+                    const isInlilne = !className;
+
+                    return !isInline ? (
+                        <CodeBlock 
+                           code = {String(children).replace(/\n$/, '')}
+                           language={language}
+                        />
+                    ) : (
+                        <code className="" {...props}>
+                            {chilren}
+                        </code>
+                    );
+                }
                 p({children}){
                     return <p className="mb-4 leading-5">{children}</p>
                 },
