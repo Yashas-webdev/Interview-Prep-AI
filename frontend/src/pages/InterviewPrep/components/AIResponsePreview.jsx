@@ -115,7 +115,40 @@ function CodeBlock({code, language}){
         setTimeout(() => setCopied(false), 2000);
     };
 
-    return <></>
+    return <>
+     <div className="">
+        <div className="">
+            <LuCode size={16} className=""/>
+            <span className="">
+                {language || 'Code'}
+            </span>
+        </div>
+        <button 
+          onClick={copyCode}
+          className=""
+          aria-label = "Copy code"
+        >
+            {copied ? (
+                <LuCheck size={16} className="" />
+            ) : (
+                <LuCopy size={16} />
+            )}
+            {copied && (
+                <span className="">
+                    Copied!
+                </span>
+            )}
+        </button>
+     </div>
+
+     <SyntaxHightlighter
+        language={language}
+        style={oneLight}
+        customStyle={{fontSize:12.5, margin: 0, padding: '1rem', background:'transparent'}}
+     >
+        {code}
+     </SyntaxHightlighter>
+    </>
 }
 
 export default AIResponsePreview
