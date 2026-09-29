@@ -46,7 +46,22 @@ const InterviewPrep = () => {
   };
 
   //Pin Question
-  const toggleQuestionPinExplanation = async (questionId) => {};
+  const toggleQuestionPinExplanation = async (questionId) => {
+    try{
+      const response = await axiosInstance.post(
+        API_PATHS.QUESTION.PIN(questionId)
+      );
+
+      console.log(response);
+
+      if(response.data && response.data.question){
+        //toast.success('Question Pinned Successfully')
+        fetchSessionDetailsById();
+      }
+    } catch (error){
+      console.error("Error:",error);
+    }
+  };
 
   //Add more questions to a session
   const uploadMoreQuestions = async () => {};
