@@ -26,11 +26,11 @@ const AIResponsePreview = ({content}) => {
                            language={language}
                         />
                     ) : (
-                        <code className="" {...props}>
+                        <code className="px-1 py-0.5 bg-gray-100 rounded text-sm" {...props}>
                             {chilren}
                         </code>
                     );
-                }
+                },
                 p({children}){
                     return <p className="mb-4 leading-5">{children}</p>
                 },
