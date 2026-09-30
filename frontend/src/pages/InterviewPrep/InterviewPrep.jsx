@@ -11,6 +11,7 @@ import DashboardLayout from "../../components/layouts/DashboardLayout";
 import RoleInfoHeader from "./components/RoleInfoHeader";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
+import Drawer from "../../components/Drawer";
 
 const InterviewPrep = () => {
 
@@ -137,8 +138,8 @@ const InterviewPrep = () => {
            title = {!isLoading && explanation?.title}
         >
           {errorMsg && (
-            <p className="">
-              <LuCircleAlert className="" /> {errorMsg}
+            <p className="flex gap-2 text-sm text-amber-600 font-medium">
+              <LuCircleAlert className="mt-1" /> {errorMsg}
             </p>
           )}
           {!isLoading && explanation && (
