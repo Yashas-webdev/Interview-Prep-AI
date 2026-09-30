@@ -43,7 +43,30 @@ const InterviewPrep = () => {
 
   //Generate Concept Explanation
   const generateConceptExplanation = async (question) => {
+    try{
+      setErrorMsg("");
+      setExplanation(null);
 
+      setIsLoading(true);
+      setOpenLeanMoreDrawer(true);
+
+      const response = await axiosInstance.post(
+        API_PATHS.AI.GENERATE_EXPLANATION,
+        {
+          question,
+        }
+      );
+
+      if (response.data){
+        setExplanation(response.data);
+      }
+    } catch (error) {
+      setExplanation(null);
+      setErrorMsg("Failed to generate explanation, Try again later");
+      console.error("Error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   //Pin Question
