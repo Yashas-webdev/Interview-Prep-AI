@@ -131,6 +131,13 @@ const InterviewPrep = () => {
             </AnimatePresence>
           </div>
         </div>
+        <Drawer
+           isOpen = {openLeanMoreDrawer}
+           onClose={() => setOpenLeanMoreDrawer(false)}
+           title = {!isLoading && explanation?.title}
+        >
+      
+        </Drawer>
       </div>
     </DashboardLayout>
   )
