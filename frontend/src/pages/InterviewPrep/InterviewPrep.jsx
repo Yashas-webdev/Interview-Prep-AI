@@ -136,7 +136,14 @@ const InterviewPrep = () => {
            onClose={() => setOpenLeanMoreDrawer(false)}
            title = {!isLoading && explanation?.title}
         >
-      
+          {errorMsg && (
+            <p className="">
+              <LuCircleAlert className="" /> {errorMsg}
+            </p>
+          )}
+          {!isLoading && explanation && (
+            <AIResponsePreview content = {explanation?.explanation} />
+          )}
         </Drawer>
       </div>
     </DashboardLayout>
