@@ -12,6 +12,7 @@ import RoleInfoHeader from "./components/RoleInfoHeader";
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import Drawer from "../../components/Drawer";
+import SkeletonLoader from "../../components/Loader/SkeletonLoader";
 
 
 const InterviewPrep = () => {
@@ -166,7 +167,7 @@ const InterviewPrep = () => {
               <LuCircleAlert className="mt-1" /> {errorMsg}
             </p>
           )}
-          {isLoading && }
+          {isLoading && <SkeletonLoader />}
           {!isLoading && explanation && (
             <AIResponsePreview content = {explanation?.explanation} />
           )}
