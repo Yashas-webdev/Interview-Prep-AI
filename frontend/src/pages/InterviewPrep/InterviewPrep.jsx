@@ -13,6 +13,7 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import Drawer from "../../components/Drawer";
 
+
 const InterviewPrep = () => {
 
   const {sessionId} = useParams();
@@ -165,6 +166,7 @@ const InterviewPrep = () => {
               <LuCircleAlert className="mt-1" /> {errorMsg}
             </p>
           )}
+          {isLoading && }
           {!isLoading && explanation && (
             <AIResponsePreview content = {explanation?.explanation} />
           )}
