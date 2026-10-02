@@ -13,6 +13,7 @@ import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from "../../utils/apiPaths";
 import Drawer from "../../components/Drawer";
 import SkeletonLoader from "../../components/Loader/SkeletonLoader";
+import AIResponsePreview from "./components/AIResponsePreview";
 
 
 const InterviewPrep = () => {
