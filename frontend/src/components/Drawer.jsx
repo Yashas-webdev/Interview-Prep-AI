@@ -13,10 +13,10 @@ const Drawer = ({
       aria-labelledby="drawer-right-label"
   >
     {/* Header */}
-    <div className="">
+    <div className="flex items-center justify-between mb-4">
       <h5
         id="drawer-right-label"
-        className=""
+        className="flex items-center text-base font-semibold tex-black"
       >
         {title}
       </h5>
@@ -24,14 +24,14 @@ const Drawer = ({
       <button
         type="button"
         onClick={onClose}
-        className=""
+        className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex items-center justify-center"
       >
-        <LuX className="" />
+        <LuX className="text-lg" />
       </button>
     </div>
 
     {/* Body Content */}
-    <div className="">{children}</div>
+    <div className="text-sm mx-3 mb-6">{children}</div>
   </div>
     
 }
