@@ -152,6 +152,24 @@ const InterviewPrep = () => {
                       onTogglePin = {() => toggleQuestionPinStatus(data._id)}
                     />
                     </>
+
+                    {!isLoading && 
+                       sessionData?.questions?.length == index + 1 && (
+                        <div className="">
+                          <button 
+                             className=""
+                             disabled={isLoading || isUpdateLoader}
+                             onClick={uploadMoreQuestions}
+                          >
+                            {isUpdateLoader ? (
+                              <SpinnerLoader/>
+                                ) : (
+                                  <LuListCollapse className="" />
+                                )}{" "}
+                                Load More
+                          </button>
+                        </div>
+                       )}
                   </motion.div>
                 );
               })}
