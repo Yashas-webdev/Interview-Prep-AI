@@ -122,8 +122,13 @@ const InterviewPrep = () => {
         fetchSessionDetailsById();
       }
     } catch (error) {
-      
+      if(error.response && error.response.data.message){
+        setErrorMsg(error.response.data.message);
+    } else {
+      setErrorMsg("Something went wrong. Please try again");
     }
+    } finally {
+      setIsUpdateLoader(false);
     }
   };
 
