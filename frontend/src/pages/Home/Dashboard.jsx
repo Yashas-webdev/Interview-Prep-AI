@@ -83,6 +83,18 @@ const Dashboard = () => {
           <CreateSeessionForm />
         </div>
       </Modal>
+
+      <Modal  
+         isOpen={openDeleteAlert?.open}
+         onClose={() => {
+          setOpenDeleteAlert({open: false, data: null});
+         }}
+         title="Delete Alert"
+      >
+        <div className="">
+          
+        </div>
+      </Modal>
     </DashboardLayout>
   )
 }
