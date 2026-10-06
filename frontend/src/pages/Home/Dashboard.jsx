@@ -11,6 +11,7 @@ import SummaryCard from "../../components/Cards/SummaryCard.jsx";
 import moment from 'moment';
 import CreateSeessionForm from "./CreateSeessionForm.jsx";
 import Modal from "../../components/Modal.jsx";
+import DeleteAlertContent from "../../components/DeleteAlertContent.jsx";
 
 const Dashboard = () => {
 
@@ -92,7 +93,10 @@ const Dashboard = () => {
          title="Delete Alert"
       >
         <div className="">
-          
+          <DeleteAlertContent
+            content="Are you sure you want to delete this session detial?"
+            onDelete={() => deleteSession(openDeleteAlert.data)}
+          />
         </div>
       </Modal>
     </DashboardLayout>
