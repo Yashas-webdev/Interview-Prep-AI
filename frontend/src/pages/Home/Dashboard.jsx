@@ -12,6 +12,7 @@ import moment from 'moment';
 import CreateSeessionForm from "./CreateSeessionForm.jsx";
 import Modal from "../../components/Modal.jsx";
 import DeleteAlertContent from "../../components/DeleteAlertContent.jsx";
+import { FaTowerBroadcast } from "react-icons/fa6";
 
 const Dashboard = () => {
 
@@ -34,7 +35,21 @@ const Dashboard = () => {
     }
   };
 
-  const deleteSession = async (sessionData) => {}
+  const deleteSession = async (sessionData) => {
+    try{
+      await axiosInstance.delete(API_PATHS.SESSION.DELETE(sessionData?._id));
+
+      toast.success("Session Dleted Successfully");
+      setOpenDeleteAlert({
+        open: false,
+        data: null,
+      });
+
+      fetchAllSessions();
+    } catch (error) {
+      console.error("Error deleting session data:",error);
+    }
+  }
 
   useEffect(()=>{
     fetchAllSessions();
