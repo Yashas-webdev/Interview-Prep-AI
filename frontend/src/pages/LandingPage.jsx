@@ -3,7 +3,7 @@ import HERO_IMG from "../assets/hero-img.png";
 import { APP_FEATURES } from "../utils/data";
 import {LuSparkles} from 'react-icons/lu'
 import { useContext, useState } from "react";
-import Modal from '../components/Modal.jsx';
+import Modal from '../components/Modal.jsx'
 import Login from '../pages/Auth/Login.jsx'
 import SignUp from '../pages/Auth/SignUp.jsx'
 import { UserContext } from "../context/userContext.jsx";
