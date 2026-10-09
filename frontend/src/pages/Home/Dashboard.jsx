@@ -51,9 +51,11 @@ const Dashboard = () => {
     }
   }
 
+  
   useEffect(()=>{
     fetchAllSessions();
   },[]);
+  
 
   return (
     <DashboardLayout>
@@ -88,6 +90,7 @@ const Dashboard = () => {
         </button>
       </div>
 
+
       <Modal 
          isOpen = {openCreateModal}
          onClose={() => {
@@ -99,6 +102,7 @@ const Dashboard = () => {
           <CreateSeessionForm />
         </div>
       </Modal>
+
 
       <Modal  
          isOpen={openDeleteAlert?.open}
@@ -117,5 +121,6 @@ const Dashboard = () => {
     </DashboardLayout>
   )
 }
+
 
 export default Dashboard
