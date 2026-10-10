@@ -51,12 +51,10 @@ const Dashboard = () => {
     }
   }
 
-  
   useEffect(()=>{
     fetchAllSessions();
   },[]);
   
-
   return (
     <DashboardLayout>
       <div className="container mx-auto pt-4 pb-4">
